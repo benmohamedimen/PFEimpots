@@ -15,16 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.DeclarationOnImpots.Entity.Contribuable;
 import com.dev.DeclarationOnImpots.Service.ContribuableService;
+import com.dev.DeclarationOnImpots.Service.ContribuableServiceImp;
 
 
 
 
 
 @RestController
-@CrossOrigin 
+@CrossOrigin(origins = "http://localhost:4200") 
 public class ContribuableController {
 	@Autowired
 	private ContribuableService contribuableService;
+	private ContribuableServiceImp contribuableServiceImp;
 	
 	@RequestMapping(value = "/contribuables", method = RequestMethod.GET, headers = "Accept=application/json")
 	public @ResponseBody List<Contribuable> getAllContribuables() {
@@ -45,10 +47,10 @@ public class ContribuableController {
 		return this.contribuableService.findAll();
 	}
 	*/
-	@RequestMapping (value="/contribuables/{NIF}",method=RequestMethod.PUT, headers = "Accept=application/json")
-	public Contribuable update(@PathVariable Long NIF,@RequestBody Contribuable c) {
-		c.setNIF(NIF);
-		return this.contribuableService.update(c);
+	@RequestMapping (value="/contribuables/update",method=RequestMethod.PUT, headers = "Accept=application/json")
+	public Contribuable update(@RequestBody Contribuable c) {
+		System.out.println("update" +  c);
+		return this.contribuableServiceImp.update(c);
 	}
 
 	@RequestMapping(value = "/contribuables/addContribuable", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -66,7 +68,7 @@ public class ContribuableController {
 		return true;
 	}
 	@RequestMapping(value = "/contribuables/{NIF}", method = RequestMethod.GET, headers = "Accept=application/json")
-	public Contribuable findOne(@PathVariable Long NIF,@RequestBody Contribuable c) {
+	public Contribuable findOne(@PathVariable Long NIF) {
 		return this.contribuableService.findOne(NIF);
 	}
 }

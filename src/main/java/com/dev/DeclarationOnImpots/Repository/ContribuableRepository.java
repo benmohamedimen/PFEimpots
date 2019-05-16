@@ -21,9 +21,9 @@ public interface ContribuableRepository extends JpaRepository<Contribuable,Long>
 
 
  Contribuable findUserWithName(String login);
- @Query("select c from Contribuable c where c.NIF = ?1")
- Contribuable findOne(Long NIF);
+ @Query("select c from Contribuable c where c.nif = ?1")
+ Contribuable findOne(Long nif);
  @Modifying
-	@Query("update Contribuable c set c.Status = ?2 where c.NIF = ?1")
-	void changeStatus(Long NIF, String status);
+	@Query("update Contribuable c set c.status = ?2 where c.nif = ?1")
+	void changeStatus(Long nif, String status);
 }

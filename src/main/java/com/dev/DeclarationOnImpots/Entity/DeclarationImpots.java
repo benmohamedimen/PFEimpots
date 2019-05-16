@@ -18,10 +18,10 @@ public class DeclarationImpots implements Serializable {
 
 
 public String getTypeDeclarationImpots() {
-	return TypeDeclarationImpots;
+	return this.TypeDeclarationImpots;
 }
 public Long getIdDeclarationImpots() {
-	return IdDeclarationImpots;
+	return this.IdDeclarationImpots;
 }
 public void setIdDeclarationImpots(Long idDeclarationImpots) {
 	IdDeclarationImpots = idDeclarationImpots;
@@ -30,13 +30,13 @@ public void setTypeDeclarationImpots(String typeDeclarationImpots) {
 	TypeDeclarationImpots = typeDeclarationImpots;
 }
 public String getObligation() {
-	return Obligation;
+	return this.Obligation;
 }
 public void setObligation(String obligation) {
 	Obligation = obligation;
 }
 public Date getDateDeclarationImpots() {
-	return DateDeclarationImpots;
+	return this.DateDeclarationImpots;
 }
 public void setDateDeclarationImpots(Date dateDeclarationImpots) {
 	DateDeclarationImpots = dateDeclarationImpots;

@@ -23,17 +23,17 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class Contribuable implements Serializable, UserDetails {
  
 
-@Id	private long NIF;
+@Id	private long nif;
  private String login;
  private String password;
  private Date dateNaissance;
  private String email;
  private Long tel;
 public enum  categorie {personnePhysique, personneMorale};
-private int NumCnss;
-private String Nationnalite;
-private String Adresse;
-public String Status;
+private int numCnss;
+private String nationnalite;
+private String adresse;
+public String status;
 
 
 
@@ -59,27 +59,23 @@ public boolean isEnabled() {
 public Collection<? extends GrantedAuthority> getAuthorities() {
     return null;
 }
-@Override
-public String getPassword() {
-	// TODO Auto-generated method stub
-	return null;
+public long getNif() {
+	return nif;
 }
-@Override
-public String getUsername() {
-	// TODO Auto-generated method stub
-	return null;
-}
-public long getNIF() {
-	return NIF;
-}
-public void setNIF(long nIF) {
-	NIF = nIF;
+public void setNif(long nif) {
+	this.nif = nif;
 }
 public String getLogin() {
 	return login;
 }
 public void setLogin(String login) {
 	this.login = login;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
 }
 public Date getDateNaissance() {
 	return dateNaissance;
@@ -100,50 +96,51 @@ public void setTel(Long tel) {
 	this.tel = tel;
 }
 public int getNumCnss() {
-	return NumCnss;
+	return numCnss;
 }
 public void setNumCnss(int numCnss) {
-	NumCnss = numCnss;
+	this.numCnss = numCnss;
 }
 public String getNationnalite() {
-	return Nationnalite;
+	return nationnalite;
 }
 public void setNationnalite(String nationnalite) {
-	Nationnalite = nationnalite;
+	this.nationnalite = nationnalite;
 }
 public String getAdresse() {
-	return Adresse;
+	return adresse;
 }
 public void setAdresse(String adresse) {
-	Adresse = adresse;
+	this.adresse = adresse;
 }
-public void setPassword(String password) {
-	this.password = password;
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
 }
 public Contribuable() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public String getStatus() {
-	return Status;
-}
-public void setStatus(String status) {
-	Status = status;
-}
-public Contribuable(long nIF, String login, String password, Date dateNaissance, String email, Long tel, int numCnss,
+public Contribuable(long nif, String login, String password, Date dateNaissance, String email, Long tel, int numCnss,
 		String nationnalite, String adresse, String status) {
 	super();
-	NIF = nIF;
+	this.nif = nif;
 	this.login = login;
 	this.password = password;
 	this.dateNaissance = dateNaissance;
 	this.email = email;
 	this.tel = tel;
-	NumCnss = numCnss;
-	Nationnalite = nationnalite;
-	Adresse = adresse;
-	Status = status;
+	this.numCnss = numCnss;
+	this.nationnalite = nationnalite;
+	this.adresse = adresse;
+	this.status = status;
 }
-
+@Override
+public String getUsername() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }
